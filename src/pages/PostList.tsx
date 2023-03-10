@@ -1,8 +1,7 @@
-import PostBox from "../components/PostBox";
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
-import {url} from "../setting";
-import {Link, useParams} from "react-router-dom";
+import { url } from "../setting";
+import { Link, useParams } from "react-router-dom";
 
 
 export default function PostList() {
@@ -25,33 +24,44 @@ export default function PostList() {
         })
     }, [page_num])
 
-    const post_list = Obj.map((item: { title: string; pub_date: string; content: string, id: number, summary: string }) =>
-        <PostBox key={item.id} title={item.title} pub_date={item.pub_date} content={item.content} id={item.id} has_link={true} summary_state={true} summary={item.summary}/>
+    const post_list = Obj.map((item: { title: string; pub_date: string; content: string, id: number, summary: string, view: number }) =>
+        <>
+            <div className="mb-5">
+                <Link to={'/post_single/' + item.id}>
+                    <div className="font-bold mb-1 leading-tight lg:text-xl">{item.title}</div>
+                    <div className="text-xs text-gray-500">
+                        {item.pub_date}
+                    </div>
+                </Link>
+            </div>
+        </>
     )
 
     let prev, next
     if (page_num >= 2) {
         prev = (
             <Link to={'/post_list/' + (page_num - 1).toString()}>
-                <div className="">上一页 {page_num - 1}</div>
+                <div className="">上一页</div>
             </Link>
         )
     }
-
+    const current = (
+        <div className="">{page_num}</div>
+    )
     next = (
         <Link to={'/post_list/' + (page_num + 1).toString()}>
-            <div className="">下一页 {page_num + 1}</div>
+            <div className="">下一页</div>
         </Link>
     )
 
     return (
         <>
-            <div className="my-10">
+            <div className="">
                 {post_list}
             </div>
 
-            <div className="container max-w-[700px] flex items-center justify-between mb-10">
-                {prev}{next}
+            <div className="mt-10 flex justify-between">
+                {prev}{current}{next}
             </div>
         </>
     )

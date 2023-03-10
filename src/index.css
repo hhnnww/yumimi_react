@@ -7,5 +7,9 @@ body {
 }
 
 .prose h2{
-    @apply text-xl;
+    @apply text-2xl;
+}
+
+.prose pre{
+    @apply rounded-none -mx-8 lg:-mx-0 lg:rounded;
 }
