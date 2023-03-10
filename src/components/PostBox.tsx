@@ -40,12 +40,4 @@ export default function PostBox(props: { title: string; pub_date: string; conten
             </div>
         )
     }
-
-
-
-    return (
-        <>
-
-        </>
-    )
 }
