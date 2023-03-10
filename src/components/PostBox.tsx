@@ -10,7 +10,7 @@ export default function PostBox(props: { title: string; pub_date: string; conten
                         <div className="text-xs font-bold">
                             {props.pub_date}
                         </div>
-                        <div className="text-xl uppercase">
+                        <div className="text-xl">
                             <Link to={'post_single/' + props.id} >
                                 {props.title}
                             </Link>
@@ -27,7 +27,7 @@ export default function PostBox(props: { title: string; pub_date: string; conten
                         <div className="text-sm font-bold">
                             {props.pub_date}
                         </div>
-                        <div className="text-2xl lg:text-4xl text-bold uppercase">
+                        <div className="text-2xl lg:text-4xl text-bold">
                             {props.title}
                         </div>
                     </div>
