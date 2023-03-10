@@ -1,0 +1,1 @@
+export const url = 'https://yumimi.top/v1/post/'
