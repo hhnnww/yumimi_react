@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { url } from "../setting";
 import { Link, useParams } from "react-router-dom";
-
+import TimeIcon from "./TimeIcon";
 
 export default function PostList() {
     const [Obj, setObj] = useState([])
@@ -26,11 +26,17 @@ export default function PostList() {
 
     const post_list = Obj.map((item: { title: string; pub_date: string; content: string, id: number, summary: string, view: number }) =>
         <>
-            <div className="mb-5">
+            <div className="mb-10 border-b pb-10">
                 <Link to={'/post_single/' + item.id}>
-                    <div className="font-bold mb-1 leading-tight lg:text-xl">{item.title}</div>
-                    <div className="text-xs text-gray-500">
-                        {item.pub_date}
+                    <div className="title">{item.title}</div>
+                    <div className="meta">
+                        <div className="">
+                            <TimeIcon />
+                        </div>
+                        <div className="">{item.pub_date}</div>
+                    </div>
+                    <div className="line-clamp-3 text-sm">
+                        {item.content}
                     </div>
                 </Link>
             </div>
@@ -60,7 +66,7 @@ export default function PostList() {
                 {post_list}
             </div>
 
-            <div className="mt-10 flex justify-between">
+            <div className="mb-20 flex justify-between">
                 {prev}{current}{next}
             </div>
         </>

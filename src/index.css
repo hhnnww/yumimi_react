@@ -2,14 +2,28 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-    font-family: Lato, sans-serif;
+body{
+    @apply font-serif;
+    font-family: "Merriweather", serif;
+    color: #343434;
+}
+
+.prose{
+    @apply leading-7;
 }
 
 .prose h2{
-    @apply text-2xl;
+    @apply text-xl font-normal;
 }
 
 .prose pre{
     @apply rounded-none -mx-8 lg:-mx-0 lg:rounded;
+}
+
+.title{
+    @apply mb-1 text-2xl;
+}
+
+.meta{
+    @apply text-xs text-gray-500 mb-5 flex items-center space-x-1 font-sans;
 }

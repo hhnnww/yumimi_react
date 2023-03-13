@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
+import TimeIcon from "./TimeIcon";
 
 export default function PostSingle() {
     const [Obj, useObj] = useState<{ title: string, pub_date: string, content: string, id: number, summary: string }>({
@@ -33,9 +34,16 @@ export default function PostSingle() {
         <>
             <div className="mt-10 lg:mt-20">
                 <div className="mb-5">
-                    <div className="font-bold text-2xl lg:text-4xl mb-3">{Obj.title}</div>
-                    <div className="text-xs text-gray-500">
-                        {Obj.pub_date}
+                    <div className="title">
+                        <div className="text-4xl leading-snug">
+                            {Obj.title}
+                        </div>
+                    </div>
+                    <div className="meta">
+                        <div className="">
+                            <TimeIcon />
+                        </div>
+                        <div className="">{Obj.pub_date}</div>
                     </div>
                 </div>
 

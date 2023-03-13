@@ -5,11 +5,15 @@ import PostSingle from "./pages/PostSingle";
 function Header() {
     return (
         <>
-            <div className="mb-10 mt-5">
-                <Link to={'/'}>
-                    <div className="text-xl leading-none font-bold uppercase">yumimi.top</div>
-                    <div className="text-gray-500">welcome to my blog.</div>
-                </Link>
+            <div className="border-b mb-20">
+                <div className="container py-8">
+                    <Link to={'/'}>
+                        <div className="flex justify-between">
+                            <div className="leading-none">Yumimi.Top</div>
+                            <div className="text-xs mt-1">人若无名，方可练剑！</div>
+                        </div>
+                    </Link>
+                </div>
             </div>
         </>
     )
@@ -19,9 +23,9 @@ export default function App() {
     document.title = 'YUMIMI.TOP'
     return (
         <>
-            <div className="bg-gray-100 min-h-screen p-5 lg:p-20">
-                <div className="bg-white max-w-[600px] lg:max-w-[900px] mx-auto p-8 lg:p-20 rounded shadow-sm">
-                    <Header />
+            <div className="">
+                <Header />
+                <div className="max-w-[700px] mx-auto mb-20">
                     <Routes>
                         <Route path="/" element={<PostList />} />
                         <Route path="post_list/:num" element={<PostList />} />
